@@ -11,7 +11,7 @@ class Post(models.Model):
     )
     author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name='author')
     title = models.CharField(max_length=255)
-    content = models.TextField()
+    body = models.TextField()
     thumbnail = models.ImageField(upload_to='media/post_thumbnail/%Y/%M/%d')
     slug = models.SlugField(max_length=225, unique_for_date='published_date')
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='draft')
