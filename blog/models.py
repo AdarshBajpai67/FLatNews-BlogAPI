@@ -13,15 +13,13 @@ class Post(models.Model):
     title = models.CharField(max_length=255)
     body = models.TextField()
     thumbnail = models.ImageField(upload_to='media/post_thumbnail/%Y/%m/%d')
-    slug = models.SlugField(max_length=225, unique_for_date='published_date')
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='draft')
-    published_date = models.DateTimeField(default=timezone.now)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
-        ordering = ('-published_date',)
+        ordering = ('-created_at',)
 
     def __str__(self):
         return self.title
