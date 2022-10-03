@@ -13,7 +13,7 @@ class Post(models.Model):
     title = models.CharField(max_length=255)
     body = models.TextField()
     thumbnail = models.ImageField(upload_to='media/post_thumbnail/%Y/%m/%d')
-    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='draft')
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='published')
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
